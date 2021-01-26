@@ -1,0 +1,10 @@
+__offline_instllations_folder=/media/nvme/work/offline_sdk_instllation
+
+alias get-package='$__offline_instllations_folder/tools/offline_apt_get/get-package.sh ' 
+alias make-repo='cd $__offline_instllations_folder/tools/offline_apt_get; ./mkrepo.sh $__offline_instllations_folder/apt_repo; cd -'
+alias apt_local='make-repo; sudo cp $__offline_instllations_folder/tools/offline_apt_get/sources.list.local_repo /etc/apt/sources.list; sudo cp $__offline_instllations_folder/tools/offline_apt_get/apt.conf.d/99customaptconf /etc/apt/apt.conf.d/; sudo apt-get update; echo Local-apt > ~/.apt_state.txt;echo Done'
+alias apt_global='sudo cp $__offline_instllations_folder/tools/offline_apt_get/sources.list.orig /etc/apt/sources.list;sudo rm /etc/apt/apt.conf.d/99customaptconf; sudo apt-get update; echo Global-apt > ~/.apt_state.txt; echo Done'
+alias apt_state='cat ~/.apt_state.txt'
+
+alias mkcd='source ~/.scripts/mkcd.sh'
+alias edit_bash_aliases='gedit ~/.bash_aliases &'

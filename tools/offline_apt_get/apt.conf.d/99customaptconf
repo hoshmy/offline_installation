@@ -1,0 +1,4 @@
+APT::Get::AllowUnauthenticated "true";
+APT { Get { AllowUnauthenticated "1"; }; };
+APT{Ignore {"gpg-pubkey"; }};
+
